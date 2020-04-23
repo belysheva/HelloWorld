@@ -1,22 +1,9 @@
-var greetingApi = Vue.resource('greeting');
+import Vue from 'vue'
+import App from 'HelloWorld.vue'
 
-Vue.component('hello-world', {
-    props:['greetings'],
-    template: '<div>test</div>',
-    created: function() {
-        greetingApi.get().then(result =>
-            result.json().then(data =>
-                data.forEach(greeting => this.greetings.push(greeting))
-            )
-        )
-    }
-});
+//Vue.use(VueResource)
 
-
-var app = new Vue({
+new Vue({
     el: '#app',
-    template: '<hello-world :greetings="greetings" />',
-    data: {
-        greetings: []
-    }
-});
+    render: a => a(App)
+})
